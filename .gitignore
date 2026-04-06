@@ -9,5 +9,8 @@ build/
 *.log
 */*.egg-info/
 venv/
+.venv/
 /.project
 /.run/
+CLAUDE.md
+.claude/
