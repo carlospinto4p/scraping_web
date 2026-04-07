@@ -23,7 +23,8 @@ logger = logging.getLogger(__name__)
 def main() -> None:
     logging.basicConfig(
         level=logging.INFO,
-        format="%(message)s",
+        format="%(asctime)s  %(message)s",
+        datefmt="%H:%M:%S",
     )
     with sync_playwright() as pw:
         explore_x(pw)
@@ -145,7 +146,13 @@ def explore_x(pw: Playwright) -> None:
         logger.warning("No se encontró el botón de crear cuenta.")
 
     # -----------------------------------------------------------
-    # 8. Tercera recogida de información (diálogo de registro)
+    # 8. Pausa para que los estudiantes vean el diálogo
+    # -----------------------------------------------------------
+    logger.info("Esperando 5 segundos...")
+    page.wait_for_timeout(5_000)
+
+    # -----------------------------------------------------------
+    # 9. Tercera recogida de información (diálogo de registro)
     # -----------------------------------------------------------
     get_page_info(
         page,
@@ -153,12 +160,6 @@ def explore_x(pw: Playwright) -> None:
         screenshot_path="scripts/x_com_03_crear_cuenta.png",
         label="diálogo de crear cuenta",
     )
-
-    # -----------------------------------------------------------
-    # 9. Pausa para que los estudiantes vean el resultado
-    # -----------------------------------------------------------
-    logger.info("Esperando 5 segundos antes de cerrar...")
-    page.wait_for_timeout(5_000)
 
     # -----------------------------------------------------------
     # 10. Cerrar el navegador

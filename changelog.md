@@ -1,6 +1,14 @@
 
 ## Changelog - WebScraping
 
+### v0.3.5 - 7th April 2026
+
+- Updated `scripts/playwright_tutorial.py`:
+  - Added timestamps to logging format (`%H:%M:%S`)
+  - Wait 5 seconds after the signup modal loads (not before),
+    then collect page info and close
+
+
 ### v0.3.4 - 7th April 2026
 
 - Updated `scripts/playwright_tutorial.py`:
