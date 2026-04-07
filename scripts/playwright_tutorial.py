@@ -8,12 +8,16 @@ Ejecutar con:
     uv run python scripts/playwright_tutorial.py
 """
 
+import logging
+
 from playwright.sync_api import (
     BrowserContext,
     Page,
     Playwright,
     sync_playwright,
 )
+
+logger = logging.getLogger(__name__)
 
 
 # ================================================================
@@ -22,7 +26,7 @@ from playwright.sync_api import (
 
 
 def explore_x(pw: Playwright) -> None:
-    """Explora x.com con un navegador limpio."""
+    """Explora `x.com` con un navegador limpio."""
     # -----------------------------------------------------------
     # 1. Lanzar el navegador
     # -----------------------------------------------------------
@@ -35,8 +39,7 @@ def explore_x(pw: Playwright) -> None:
     # 2. Crear un contexto limpio
     # -----------------------------------------------------------
     # Cada contexto es un perfil aislado: sin cookies, sin
-    # caché, sin historial. Es como abrir una ventana de
-    # incógnito.
+    # caché, sin historial. Es como abrir una ventana de incógnito.
     context = browser.new_context(
         user_agent=(
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -52,17 +55,21 @@ def explore_x(pw: Playwright) -> None:
     # -----------------------------------------------------------
     page = context.new_page()
 
-    print("Navegando a x.com...")
+    logger.info("Navegando a x.com...")
     page.goto("https://x.com", wait_until="domcontentloaded")
 
     # Esperar a que la página cargue contenido visible.
-    # Nota: usamos wait_for_timeout solo con fines didácticos.
+    # Nota: usamos `wait_for_timeout` como demostración.
     # En producción se usarían señales como selectores visibles
-    # o eventos de red.
+    # o eventos de red. De la documentación de la función:
+    # > Note that `page.waitForTimeout()` should only be used for debugging.
+    # > Tests using the timer in production are going to be flaky.
+    # > Use signals such as network events, selectors becoming visible
+    # > and others instead.
     page.wait_for_timeout(3_000)
 
     # -----------------------------------------------------------
-    # 4. Primera recogida de información (antes de cookies)
+    # 4. Para extraer información de la página (antes de cookies)
     # -----------------------------------------------------------
     get_page_info(
         page,
@@ -74,25 +81,25 @@ def explore_x(pw: Playwright) -> None:
     # -----------------------------------------------------------
     # 5. Aceptar cookies
     # -----------------------------------------------------------
-    # X.com muestra un banner de cookies en la parte inferior.
-    # Buscamos el botón por su texto visible.
-    print("Buscando botón de aceptar cookies...")
+    # `X.com` muestra un banner de cookies en la parte inferior.
+    # Buscamos el botón por su texto.
+    logger.info("Buscando botón de aceptar cookies...")
 
     cookie_btn = page.get_by_role("button", name="Aceptar todas las cookies")
 
     if cookie_btn.is_visible():
-        print("Botón encontrado. Haciendo clic...")
+        logger.info("Botón encontrado. Haciendo clic...")
         cookie_btn.click()
 
-        # Esperar a que la página se estabilice tras aceptar.
+        # Esperar a que la página cargue tras aceptar.
         # Usamos "load" en vez de "networkidle" porque sitios
-        # como X.com mantienen conexiones abiertas (streaming,
+        # como `x.com` mantienen conexiones abiertas (streaming,
         # websockets) y "networkidle" nunca se alcanza.
-        # "load" espera al evento window.onload del navegador.
+        # "load" espera al evento `window.onload` del navegador.
         page.wait_for_load_state("load")
-        print("Página estabilizada tras aceptar cookies.\n")
+        logger.info("Página estabilizada tras aceptar cookies.")
     else:
-        print("No se encontró el banner de cookies.\n")
+        logger.warning("No se encontró el banner de cookies.")
 
     # -----------------------------------------------------------
     # 6. Segunda recogida de información (después de cookies)
@@ -107,7 +114,7 @@ def explore_x(pw: Playwright) -> None:
     # -----------------------------------------------------------
     # 7. Pausa para que los estudiantes vean el resultado
     # -----------------------------------------------------------
-    print("Esperando 5 segundos antes de cerrar...")
+    logger.info("Esperando 5 segundos antes de cerrar...")
     page.wait_for_timeout(5_000)
 
     # -----------------------------------------------------------
@@ -115,7 +122,7 @@ def explore_x(pw: Playwright) -> None:
     # -----------------------------------------------------------
     context.close()
     browser.close()
-    print("Navegador cerrado. Fin del tutorial.")
+    logger.info("Navegador cerrado. Fin del tutorial.")
 
 
 # ================================================================
@@ -124,9 +131,9 @@ def explore_x(pw: Playwright) -> None:
 
 
 def get_screenshot(page: Page, path: str) -> None:
-    """Captura una screenshot de la página actual."""
+    """Guarda una captura de pantalla de la página actual."""
     page.screenshot(path=path, full_page=False)
-    print(f"  Captura guardada en {path}")
+    logger.info("  Captura guardada en %s", path)
 
 
 def get_links(page: Page, limit: int = 15) -> list[dict]:
@@ -138,12 +145,12 @@ def get_links(page: Page, limit: int = 15) -> list[dict]:
         "  href: e.href"
         "}))",
     )
-    print(f"  Enlaces encontrados: {len(links)}")
+    logger.info("  Enlaces encontrados: %d", len(links))
     for link in links[:limit]:
         text = link.get("text", "")[:50]
         href = link.get("href", "")
         if text:
-            print(f"    - {text}: {href}")
+            logger.info("    - %s: %s", text, href)
     return links
 
 
@@ -157,12 +164,12 @@ def get_buttons(page: Page, limit: int = 15) -> list[dict]:
         "  ariaLabel: e.ariaLabel || ''"
         "}))",
     )
-    print(f"  Botones encontrados: {len(buttons)}")
+    logger.info("  Botones encontrados: %d", len(buttons))
     for btn in buttons[:limit]:
         text = btn.get("text", "")[:50]
         label = btn.get("ariaLabel", "")
         display = text or label or "(sin texto)"
-        print(f"    - {display}")
+        logger.info("    - %s", display)
     return buttons
 
 
@@ -173,19 +180,23 @@ def get_headings(page: Page, limit: int = 10) -> list[str]:
         "els => els.map(e => e.innerText.trim())",
     )
     if headings:
-        print(f"  Encabezados encontrados: {len(headings)}")
+        logger.info("  Encabezados encontrados: %d", len(headings))
         for h in headings[:limit]:
             if h:
-                print(f"    - {h}")
+                logger.info("    - %s", h)
     return headings
 
 
 def get_cookies(context: BrowserContext, limit: int = 10) -> list:
     """Lista las cookies actuales del contexto."""
     cookies = context.cookies()
-    print(f"  Cookies actuales: {len(cookies)}")
+    logger.info("  Cookies actuales: %d", len(cookies))
     for cookie in cookies[:limit]:
-        print(f"    - {cookie['name']}: {cookie['value'][:30]}...")
+        logger.info(
+            "    - %s: %s...",
+            cookie["name"],
+            cookie["value"][:30],
+        )
     return cookies
 
 
@@ -198,13 +209,16 @@ def get_page_info(
     """Recopila toda la información de la página actual."""
     suffix = f" ({label})" if label else ""
     header = f"=== Información de la página{suffix} ==="
-    print(f"\n{header}")
+    logger.info("\n%s", header)
 
-    print(f"  Título: {page.title()}")
-    print(f"  URL: {page.url}")
+    logger.info("  Título: %s", page.title())
+    logger.info("  URL: %s", page.url)
 
     html = page.content()
-    print(f"  Tamaño del HTML: {len(html):,} caracteres")
+    logger.info(
+        "  Tamaño del HTML: %s caracteres",
+        f"{len(html):,}",
+    )
 
     get_screenshot(page, screenshot_path)
     get_links(page)
@@ -212,10 +226,14 @@ def get_page_info(
     get_headings(page)
     get_cookies(context)
 
-    print(f"{'=' * len(header)}\n")
+    logger.info("%s\n", "=" * len(header))
 
 
 def main() -> None:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(message)s",
+    )
     with sync_playwright() as pw:
         explore_x(pw)
 

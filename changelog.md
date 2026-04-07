@@ -1,6 +1,14 @@
 
 ## Changelog - WebScraping
 
+### v0.3.3 - 7th April 2026
+
+- Updated `scripts/playwright_tutorial.py`:
+  - Replaced all `print()` calls with `logging` module
+  - Configured `basicConfig` with `format="%(message)s"` for
+    clean output
+
+
 ### v0.3.2 - 7th April 2026
 
 - Updated `scripts/playwright_tutorial.py`:
