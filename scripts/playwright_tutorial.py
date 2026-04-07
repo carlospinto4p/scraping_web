@@ -84,7 +84,7 @@ def explore_x(pw: Playwright) -> None:
     get_page_info(
         page,
         context,
-        screenshot_path="scripts/x_com_01_antes_cookies.png",
+        screenshot_path="x_com_01_antes_cookies.png",
         label="antes de aceptar cookies",
     )
 
@@ -117,7 +117,7 @@ def explore_x(pw: Playwright) -> None:
     get_page_info(
         page,
         context,
-        screenshot_path="scripts/x_com_02_despues_cookies.png",
+        screenshot_path="x_com_02_cookies_aceptadas.png",
         label="después de aceptar cookies",
     )
 
@@ -157,7 +157,7 @@ def explore_x(pw: Playwright) -> None:
     get_page_info(
         page,
         context,
-        screenshot_path="scripts/x_com_03_crear_cuenta.png",
+        screenshot_path="x_com_03_crear_cuenta.png",
         label="diálogo de crear cuenta",
     )
 
