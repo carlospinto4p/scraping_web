@@ -1,6 +1,14 @@
 
 ## Changelog - WebScraping
 
+### v0.3.4 - 7th April 2026
+
+- Updated `scripts/playwright_tutorial.py`:
+  - Added step 7: click "Crear cuenta" and wait for the signup
+    dialog using `wait_for_selector` instead of a fixed timeout
+  - Added third `get_page_info()` call capturing the modal state
+
+
 ### v0.3.3 - 7th April 2026
 
 - Updated `scripts/playwright_tutorial.py`:

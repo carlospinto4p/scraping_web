@@ -33,6 +33,7 @@ def main() -> None:
 # Función principal de exploración
 # ================================================================
 
+
 def explore_x(pw: Playwright) -> None:
     """Explora `x.com` con un navegador limpio."""
     # -----------------------------------------------------------
@@ -120,13 +121,47 @@ def explore_x(pw: Playwright) -> None:
     )
 
     # -----------------------------------------------------------
-    # 7. Pausa para que los estudiantes vean el resultado
+    # 7. Pulsar "Crear cuenta"
+    # -----------------------------------------------------------
+    logger.info("Buscando botón de crear cuenta...")
+
+    # Usamos un locator con `get_by_role` y `exact=True` para
+    # que coincida solo con "Crear cuenta" y no con textos
+    # parciales como "Crear cuenta con Google".
+    create_btn = page.get_by_role("link", name="Crear cuenta", exact=True)
+
+    if create_btn.is_visible():
+        logger.info("Botón encontrado. Haciendo clic...")
+        create_btn.click()
+
+        # Esperamos a que aparezca el diálogo de registro.
+        # `wait_for_selector` bloquea hasta que el selector
+        # sea visible en el DOM, con un timeout configurable.
+        # Es más fiable que `wait_for_timeout` porque reacciona
+        # al contenido real en vez de a un tiempo fijo.
+        page.wait_for_selector("[aria-modal='true']", timeout=10_000)
+        logger.info("Diálogo de registro visible.")
+    else:
+        logger.warning("No se encontró el botón de crear cuenta.")
+
+    # -----------------------------------------------------------
+    # 8. Tercera recogida de información (diálogo de registro)
+    # -----------------------------------------------------------
+    get_page_info(
+        page,
+        context,
+        screenshot_path="scripts/x_com_03_crear_cuenta.png",
+        label="diálogo de crear cuenta",
+    )
+
+    # -----------------------------------------------------------
+    # 9. Pausa para que los estudiantes vean el resultado
     # -----------------------------------------------------------
     logger.info("Esperando 5 segundos antes de cerrar...")
     page.wait_for_timeout(5_000)
 
     # -----------------------------------------------------------
-    # 8. Cerrar el navegador
+    # 10. Cerrar el navegador
     # -----------------------------------------------------------
     context.close()
     browser.close()
