@@ -1,6 +1,15 @@
 
 ## Changelog - WebScraping
 
+### v0.3.2 - 7th April 2026
+
+- Updated `scripts/playwright_tutorial.py`:
+  - Moved `explore_x()` above helper functions for readability
+  - Added 5-second pause before closing so students can see the result
+  - Fixed missing tildes in all Spanish text (comments, prints,
+    docstrings)
+
+
 ### v0.3.1 - 7th April 2026
 
 - Updated `scripts/playwright_tutorial.py`:
