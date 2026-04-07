@@ -1,6 +1,17 @@
 
 ## Changelog - WebScraping
 
+### v0.3.1 - 7th April 2026
+
+- Updated `scripts/playwright_tutorial.py`:
+  - Extracted reusable helper functions: `get_screenshot()`,
+    `get_links()`, `get_buttons()`, `get_headings()`,
+    `get_cookies()`, `get_page_info()`
+  - Moved browser logic into `explore_x()` function
+  - Added cookie banner acceptance with `wait_for_load_state()`
+  - Script now collects page info before and after accepting cookies
+
+
 ### v0.3.0 - 7th April 2026
 
 - Added `scripts/playwright_tutorial.py`: tutorial script that
