@@ -1,6 +1,14 @@
 
 ## Changelog - WebScraping
 
+### v0.3.0 - 7th April 2026
+
+- Added `scripts/playwright_tutorial.py`: tutorial script that
+  explores X.com with a clean browser (no cache, no cookies),
+  extracts links, headings, cookies, and takes a screenshot
+- Updated `.gitignore`: exclude `*.png` files
+
+
 ### v0.2.1 - 7th April 2026
 
 - Updated `README.md`: added installation guide for Playwright

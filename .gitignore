@@ -12,5 +12,6 @@ venv/
 .venv/
 /.project
 /.run/
+*.png
 CLAUDE.md
 .claude/
