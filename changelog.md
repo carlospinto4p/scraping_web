@@ -1,6 +1,12 @@
 
 ## Changelog - WebScraping
 
+### v0.2.1 - 7th April 2026
+
+- Updated `README.md`: added installation guide for Playwright
+  browsers (in Spanish)
+
+
 ### v0.2.0 - 7th April 2026
 
 - Added `playwright>=1.40.0` dependency for browser automation
