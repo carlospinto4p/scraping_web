@@ -1,6 +1,11 @@
 
 ## Changelog - WebScraping
 
+### v0.2.0 - 7th April 2026
+
+- Added `playwright>=1.40.0` dependency for browser automation
+
+
 ### v0.1.0 - 6th April 2026
 
 - Initial project setup with Claude Code canonical skeleton.
