@@ -20,10 +20,18 @@ from playwright.sync_api import (
 logger = logging.getLogger(__name__)
 
 
+def main() -> None:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(message)s",
+    )
+    with sync_playwright() as pw:
+        explore_x(pw)
+
+
 # ================================================================
 # Función principal de exploración
 # ================================================================
-
 
 def explore_x(pw: Playwright) -> None:
     """Explora `x.com` con un navegador limpio."""
@@ -206,7 +214,7 @@ def get_page_info(
     screenshot_path: str,
     label: str = "",
 ) -> None:
-    """Recopila toda la información de la página actual."""
+    """Recopila un resumen de la información de la página actual."""
     suffix = f" ({label})" if label else ""
     header = f"=== Información de la página{suffix} ==="
     logger.info("\n%s", header)
@@ -227,15 +235,6 @@ def get_page_info(
     get_cookies(context)
 
     logger.info("%s\n", "=" * len(header))
-
-
-def main() -> None:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(message)s",
-    )
-    with sync_playwright() as pw:
-        explore_x(pw)
 
 
 if __name__ == "__main__":
