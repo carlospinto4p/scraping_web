@@ -26,6 +26,8 @@ def main() -> None:
         format="%(asctime)s  %(message)s",
         datefmt="%H:%M:%S",
     )
+    # Notar que este `with` es un context manager:
+    # abre el navegador (contexto) al entrar y lo cierra al terminarse.
     with sync_playwright() as pw:
         explore_x(pw)
 
@@ -66,9 +68,9 @@ def explore_x(pw: Playwright) -> None:
     page = context.new_page()
 
     logger.info("Navegando a x.com...")
+    # Esperar a que la página cargue contenido visible.
     page.goto("https://x.com", wait_until="domcontentloaded")
 
-    # Esperar a que la página cargue contenido visible.
     # Nota: usamos `wait_for_timeout` como demostración.
     # En producción se usarían señales como selectores visibles
     # o eventos de red. De la documentación de la función:
@@ -112,7 +114,7 @@ def explore_x(pw: Playwright) -> None:
         logger.warning("No se encontró el banner de cookies.")
 
     # -----------------------------------------------------------
-    # 6. Segunda recogida de información (después de cookies)
+    # 6. Segunda recogida de información (después de aceptar cookies)
     # -----------------------------------------------------------
     get_page_info(
         page,
@@ -146,7 +148,7 @@ def explore_x(pw: Playwright) -> None:
         logger.warning("No se encontró el botón de crear cuenta.")
 
     # -----------------------------------------------------------
-    # 8. Pausa para que los estudiantes vean el diálogo
+    # 8. Pausa antes de cerrar el navegador repentinamente
     # -----------------------------------------------------------
     logger.info("Esperando 5 segundos...")
     page.wait_for_timeout(5_000)
@@ -165,6 +167,10 @@ def explore_x(pw: Playwright) -> None:
     # 10. Cerrar el navegador
     # -----------------------------------------------------------
     context.close()
+    # Igual que con la línea de `with sync_playwright() as pw: ...`,
+    # notar cómo tanto `context` and `browser` han sido inicializados
+    # y cerrados. Podríamos haberlos tratado con la misma estructura
+    # que con `with ...:`, que en general es mejor práctica.
     browser.close()
     logger.info("Navegador cerrado. Fin del tutorial.")
 
