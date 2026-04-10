@@ -1,6 +1,18 @@
 
 ## Changelog - WebScraping
 
+### v0.3.6 - 10th April 2026
+
+- `.claude/rules/`:
+  - Decoupled `/improvements` rule: canonical
+    `improvements.md` is now procedural only.
+  - Added `improvement-areas.md` with
+    project-specific areas to watch.
+- `.claude/skills/improvements/`:
+  - Updated `SKILL.md` to read both canonical
+    procedure and per-project areas.
+
+
 ### v0.3.5 - 7th April 2026
 
 - Updated `scripts/playwright_tutorial.py`:
