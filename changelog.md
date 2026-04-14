@@ -1,6 +1,12 @@
 
 ## Changelog - WebScraping
 
+### v0.3.9 - 15th April 2026
+
+- `.claude/`: cross-project migration landed today:
+  - Removed `.claude/hooks/pre-commit-tests.sh`; replaced by a global dispatcher at `~/.claude/hooks/pre-commit-tests.sh` that invokes `scripts/pre-commit.sh` on `git commit`. Added `scripts/pre-commit.sh` with the project-local test command.
+
+
 ### v0.3.8 - 11th April 2026
 
 - `.claude/rules/`:
