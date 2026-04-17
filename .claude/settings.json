@@ -1,0 +1,35 @@
+{
+  "hooks": {},
+  "permissions": {
+    "allow": [
+      "Bash(uv sync:*)",
+      "Bash(uv run:*)",
+      "Bash(uv pip install:*)",
+      "Bash(ruff:*)",
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git push)",
+      "Bash(git rm:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(head:*)",
+      "Bash(which:*)",
+      "Bash(tree:*)",
+      "Bash(uv lock:*)",
+      "Bash(git -C:*)"
+    ],
+    "deny": [
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(credentials/**)"
+    ]
+  }
+}
