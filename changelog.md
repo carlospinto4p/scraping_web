@@ -1,6 +1,10 @@
 
 ## Changelog - WebScraping
 
+### v0.3.10 - 17th April 2026
+
+- `.gitattributes`: Added LF line ending normalization.
+
 ### v0.3.9 - 15th April 2026
 
 - `.claude/`: cross-project migration landed today:
