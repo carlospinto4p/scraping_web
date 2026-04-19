@@ -1,6 +1,11 @@
 
 ## Changelog - WebScraping
 
+### v0.3.11 - 20th April 2026
+
+- Synced canonical `.gitignore` from programme (direnv block).
+
+
 ### v0.3.10 - 17th April 2026
 
 - `.gitattributes`: Added LF line ending normalization.

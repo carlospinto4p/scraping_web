@@ -1,17 +1,49 @@
+# Pycharm
 .idea/
-.pytest_cache/
+.project
+
+# Python
 __pycache__/
-*/.ipynb_checkpoints/*
-*/data/
-*/credentials/
-sketches/
-build/
-*.log
-*/*.egg-info/
+.pytest_cache/
+*.egg-info/
 venv/
 .venv/
-/.project
-/.run/
-*.png
-CLAUDE.md
-.claude/
+
+# Environment Variables/Secrets
+.env
+credentials/
+*/credentials/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Sketches
+sketches/
+notebooks/
+*.local.*
+*.tmp.*
+
+# AWS / Cloud
+.aws-sam/
+
+# Logs / Output
+*.log
+
+# Data
+*/data/
+
+# Large data files (suffix _all)
+*_all.*
+
+# Agent Builder workspace
+workspace/
+
+# Build artifacts
+build/
+
+# Ruff cache
+.ruff_cache/
+
+# direnv
+.envrc
