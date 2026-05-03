@@ -1,4 +1,8 @@
-# See https://pre-commit.com for more information
+# See https://pre-commit.com for more information:
+# How to use:
+#   - install pre-commit: pip install pre-commit
+#   - install hooks: pre-commit install
+#   - run hooks: pre-commit run --all-files (this is what CI does)
 repos:
   - repo: local
     hooks:
@@ -6,7 +10,7 @@ repos:
         name: Ruff Lint Fix
         entry: uv run ruff check --fix
         language: system
-        types: [python]
+        types: [ python ]
       - id: ruff-format
         name: Ruff Format
         entry: uv run ruff format .
