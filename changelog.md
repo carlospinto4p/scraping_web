@@ -1,6 +1,12 @@
 
 ## Changelog - WebScraping
 
+### v0.3.12 - 8th May 2026
+
+- Synced canonical rules from `programme` v2.52.139/v2.52.140: `backlog`, `refactoring`, `optimization`, `improvements` rules promoted to global (`~/.claude/rules/`) and removed locally; `versioning.md` updated with depth-based-cadence batch exception.
+
+
+
 ### v0.3.11 - 20th April 2026
 
 - Synced canonical `.gitignore` from programme (direnv block).
