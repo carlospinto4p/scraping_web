@@ -1,6 +1,12 @@
 
 ## Changelog - WebScraping
 
+### v0.3.14 - 9th May 2026
+
+- Added `When to Skip Tests` section to `.claude/rules/committing.md`: explicit allowlist (markdown, version bump, lock file, `.claude/` config, `CLAUDE.md`) of diffs where tests can be safely skipped.
+
+
+
 ### v0.3.13 - 9th May 2026
 
 - Updated `.claude/rules/versioning.md` (1.0 → 1.1): rewrote changelog-format section to fix rule/example contradiction; threshold now stated as "3+ top-level bullets touching the same module → group under a parent"; sub-bullet patterns reorganised; added "When NOT to group" section. Synced from programme v2.52.144.
