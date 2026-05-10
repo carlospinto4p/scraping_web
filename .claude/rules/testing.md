@@ -51,7 +51,6 @@ They never depend on external services or real data files.
   roundtrips, serialization schemas.
 - **Don't test:** private helpers directly (test through public
   API), trivial getters/setters.
-
 ## Running Tests
 
 ```bash

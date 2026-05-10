@@ -1,6 +1,11 @@
 
 ## Changelog - WebScraping
 
+### v0.3.15 - 10th May 2026
+
+- Synced canonical `testing.md` from `programme` v2.55.2 (blank line trim before `## Running Tests` section).
+
+
 ### v0.3.14 - 9th May 2026
 
 - Added `When to Skip Tests` section to `.claude/rules/committing.md`: explicit allowlist (markdown, version bump, lock file, `.claude/` config, `CLAUDE.md`) of diffs where tests can be safely skipped.
