@@ -43,3 +43,7 @@ build/
 
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
+
+# Generated
+.pre-commit-scripts/
+scripts/*.png
