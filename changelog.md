@@ -1,6 +1,11 @@
 
 ## Changelog - WebScraping
 
+### v0.3.16 - 1st June 2026
+
+- Updated `.claude/rules/committing.md`: no-parallel-git-command rule and `-m` flag guidance.
+
+
 ### v0.3.15 - 10th May 2026
 
 - Synced canonical `testing.md` from `programme` v2.55.2 (blank line trim before `## Running Tests` section).
