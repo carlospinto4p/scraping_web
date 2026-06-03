@@ -1,6 +1,10 @@
 
 ## Changelog - WebScraping
 
+### v0.3.17 - 3rd June 2026
+
+- Synced `.claude/rules/testing.md` from the programme registry: added the SQLite-backed fixtures pointer to the session-scoped template pattern (see the shared `testing-python` rule).
+
 ### v0.3.16 - 1st June 2026
 
 - Updated `.claude/rules/committing.md`: no-parallel-git-command rule and `-m` flag guidance.
