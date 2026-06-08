@@ -1,6 +1,11 @@
 
 ## Changelog - WebScraping
 
+### v0.3.19 - 8th June 2026
+
+- Synced reworded `versioning.md` changelog-prepend guidance from programme — insert a new entry above the top header instead of replacing it.
+
+
 ### v0.3.18 - 4th June 2026
 
 - Synced `.claude/rules/committing.md` from the programme registry: step 6 now scopes `uv.lock` regeneration to code-related bumps only — non-code patch bumps (`.claude/` config, docs, changelog, rule syncs) skip `uv lock`.
