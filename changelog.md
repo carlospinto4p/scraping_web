@@ -1,6 +1,7 @@
 
 ## Changelog - WebScraping
 
+
 ### v0.3.19 - 8th June 2026
 
 - Synced reworded `versioning.md` changelog-prepend guidance from programme — insert a new entry above the top header instead of replacing it.
@@ -10,9 +11,11 @@
 
 - Synced `.claude/rules/committing.md` from the programme registry: step 6 now scopes `uv.lock` regeneration to code-related bumps only — non-code patch bumps (`.claude/` config, docs, changelog, rule syncs) skip `uv lock`.
 
+
 ### v0.3.17 - 3rd June 2026
 
 - Synced `.claude/rules/testing.md` from the programme registry: added the SQLite-backed fixtures pointer to the session-scoped template pattern (see the shared `testing-python` rule).
+
 
 ### v0.3.16 - 1st June 2026
 
@@ -29,17 +32,14 @@
 - Added `When to Skip Tests` section to `.claude/rules/committing.md`: explicit allowlist (markdown, version bump, lock file, `.claude/` config, `CLAUDE.md`) of diffs where tests can be safely skipped.
 
 
-
 ### v0.3.13 - 9th May 2026
 
 - Updated `.claude/rules/versioning.md` (1.0 → 1.1): rewrote changelog-format section to fix rule/example contradiction; threshold now stated as "3+ top-level bullets touching the same module → group under a parent"; sub-bullet patterns reorganised; added "When NOT to group" section. Synced from programme v2.52.144.
 
 
-
 ### v0.3.12 - 8th May 2026
 
 - Synced canonical rules from `programme` v2.52.139/v2.52.140: `backlog`, `refactoring`, `optimization`, `improvements` rules promoted to global (`~/.claude/rules/`) and removed locally; `versioning.md` updated with depth-based-cadence batch exception.
-
 
 
 ### v0.3.11 - 20th April 2026
@@ -50,6 +50,7 @@
 ### v0.3.10 - 17th April 2026
 
 - `.gitattributes`: Added LF line ending normalization.
+
 
 ### v0.3.9 - 15th April 2026
 
