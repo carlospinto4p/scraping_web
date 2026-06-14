@@ -47,3 +47,7 @@ build/
 # Generated
 .pre-commit-scripts/
 scripts/*.png
+
+# Universal entries (programme sync)
+.claude/wip
+.claude/docs-ok
