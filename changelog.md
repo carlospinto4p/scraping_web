@@ -2,6 +2,14 @@
 ## Changelog - WebScraping
 
 
+### v0.3.20 - 14th June 2026
+
+- Added the `check-changelog-headers` pre-commit guard
+  (`.pre-commit-scripts/check_changelog_headers.sh` + the `.pre-commit-config.yaml`
+  stanza): blocks a changelog edit that overwrites an existing version
+  header (the bug that silently lost manifold's `v0.1.35`).
+
+
 ### v0.3.19 - 8th June 2026
 
 - Synced reworded `versioning.md` changelog-prepend guidance from programme — insert a new entry above the top header instead of replacing it.
