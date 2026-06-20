@@ -45,7 +45,6 @@ build/
 .claude/scheduled_tasks.lock
 
 # Generated
-.pre-commit-scripts/
 scripts/*.png
 
 # Universal entries (programme sync)

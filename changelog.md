@@ -2,6 +2,14 @@
 ## Changelog - WebScraping
 
 
+### v0.3.21 - 20th June 2026
+
+- Added `scripts/changelog-add.sh` (safe changelog-prepend helper) and the `check-version-changelog` pre-commit guard, distributed in the programme fleet rollout.
+- Restored `.pre-commit-scripts/check_unstaged_claude.py` and removed the
+  stray `.pre-commit-scripts/` `.gitignore` entry so local hook scripts
+  are tracked like the rest of the fleet.
+
+
 ### v0.3.20 - 14th June 2026
 
 - Added the `check-changelog-headers` pre-commit guard
