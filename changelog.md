@@ -2,6 +2,14 @@
 ## Changelog - WebScraping
 
 
+### v0.3.22 - 3rd July 2026
+
+- Synced the canonical `check-version-changelog` pre-commit guard:
+  manifests under `reservations/` are now excluded from the
+  version-changelog check (defensive package-name placeholders carry
+  their own versions, independent of the app release).
+
+
 ### v0.3.21 - 20th June 2026
 
 - Added `scripts/changelog-add.sh` (safe changelog-prepend helper) and the `check-version-changelog` pre-commit guard, distributed in the programme fleet rollout.
