@@ -2,6 +2,25 @@
 ## Changelog - WebScraping
 
 
+### v0.3.23 - 24th July 2026
+
+- Updated `.pre-commit-config.yaml`: the ruff hooks now run
+  `uv run --no-sync ruff` instead of `uvx ruff`.
+  - `uvx` resolves whatever ruff PyPI serves that day, so the commit
+    gate and this project's own lock-pinned ruff were different
+    versions — and any upstream ruff release could change the enforced
+    rule set with no local change. `uv run` uses this project's ruff,
+    so local and commit-time linting always agree.
+  - `--no-sync` is required, not an optimization: a bare `uv run`
+    re-syncs first, which on a version-bump commit rewrites `uv.lock`
+    mid-hook and leaves pre-commit's stash/restore cycle fighting its
+    own linter. Verified in programme v4.83.1.
+  - `ruff format` loses its `.` argument: pre-commit already passes the
+    staged files, and a literal `.` overrode that to format the whole
+    tree.
+  - Pushed from programme's canonical `python-base` skeleton (v4.83.1).
+
+
 ### v0.3.22 - 3rd July 2026
 
 - Synced the canonical `check-version-changelog` pre-commit guard:
