@@ -2,6 +2,14 @@
 ## Changelog - WebScraping
 
 
+### v0.3.24 - 24th July 2026
+
+- Updated `.claude/rules/committing.md` from canonical: `uv.lock` is
+  committed whenever it changed, and a lock-only diff takes no version
+  bump or changelog entry (bumping `pyproject.toml` would push it ahead
+  again and recreate the drift, so it never converges).
+
+
 ### v0.3.23 - 24th July 2026
 
 - Updated `.pre-commit-config.yaml`: the ruff hooks now run

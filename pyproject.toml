@@ -1,6 +1,6 @@
 [project]
 name = "web-scraping"
-version = "0.3.23"
+version = "0.3.24"
 description = "Web scraping tutorial"
 authors = [
     { name = "Carlos Pinto", email = "carlospinto4p@gmail.com" },
