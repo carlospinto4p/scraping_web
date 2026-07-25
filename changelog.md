@@ -2,6 +2,13 @@
 ## Changelog - WebScraping
 
 
+### v0.3.29 - 25th July 2026
+
+- Fixed `notebooks/parse_html.ipynb`: replaced 2 bare `except:`
+  clauses (cell 21, lines ~10 and ~48) with `except Exception:`,
+  resolving `ruff check`'s `E722` errors without changing behavior.
+
+
 ### v0.3.28 - 25th July 2026
 
 - Updated `.claude/rules/committing.md` from canonical: clarifies that
