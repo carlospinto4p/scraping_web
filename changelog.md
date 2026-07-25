@@ -2,6 +2,14 @@
 ## Changelog - WebScraping
 
 
+### v0.3.28 - 25th July 2026
+
+- Updated `.claude/rules/committing.md` from canonical: clarifies that
+  a lock file's self-referential version drifting by a patch after a
+  non-code bump is expected and harmless — not something to chase
+  across repos.
+
+
 ### v0.3.27 - 25th July 2026
 
 - Added `[tool.ruff.lint] select = ["E4", "E7", "E9", "F"]` to
