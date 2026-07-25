@@ -2,6 +2,17 @@
 ## Changelog - WebScraping
 
 
+### v0.3.27 - 25th July 2026
+
+- Added `[tool.ruff.lint] select = ["E4", "E7", "E9", "F"]` to
+  `pyproject.toml`, pinning ruff's default rule set explicitly
+  (verified via `ruff check --show-settings` against the project's
+  locked 0.15.9 — identical enabled-rule list before and after). A
+  future ruff release can no longer silently turn on new default
+  rules underneath the project. Part of a fleet-wide pass; see
+  programme's backlog and v4.91.1/v4.92.0.
+
+
 ### v0.3.26 - 24th July 2026
 
 - `CLAUDE.md`: replaced the superseded **Core Rules** periodic-review
