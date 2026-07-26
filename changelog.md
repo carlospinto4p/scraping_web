@@ -2,6 +2,15 @@
 ## Changelog - WebScraping
 
 
+### v0.3.30 - 26th July 2026
+
+- Added `pre-commit>=4.2.0` to `dev` extras in `pyproject.toml`. The
+  repo already ships a `.pre-commit-config.yaml`, but had no local
+  `pre-commit` binary to install its own hook — surfaced while
+  fleet-wide re-running `precommit_hooks.py` uncovered this repo's
+  hook could never be installed against its own venv.
+
+
 ### v0.3.29 - 25th July 2026
 
 - Fixed `notebooks/parse_html.ipynb`: replaced 2 bare `except:`
