@@ -2,6 +2,15 @@
 ## Changelog - WebScraping
 
 
+### v0.3.31 - 27th July 2026
+
+- Updated `.claude/rules/committing.md` from canonical: added a
+  "Concurrent Sessions" section covering the cross-session
+  commit-pollution hazard (check `git status --porcelain`
+  immediately before every commit, stage by name, diff before
+  re-shipping a change another session already committed).
+
+
 ### v0.3.30 - 26th July 2026
 
 - Added `pre-commit>=4.2.0` to `dev` extras in `pyproject.toml`. The
