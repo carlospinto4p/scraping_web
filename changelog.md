@@ -2,6 +2,13 @@
 ## Changelog - WebScraping
 
 
+### v0.3.33 - 30th July 2026
+
+- Pruned the stale `Read(credentials/**)` deny from `.claude/settings.json`
+  (superseded by the git-aware `block-read-secrets` hook, fleet-wide
+  `push_to_projects.py --types projectperms` sync).
+
+
 ### v0.3.32 - 28th July 2026
 
 - Rotated changelog: archived 6 entries to `changelog/2026.md`.
