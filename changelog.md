@@ -2,6 +2,11 @@
 ## Changelog - WebScraping
 
 
+### v0.3.34 - 31st July 2026
+
+- Rotated changelog: archived 2 entries to `changelog/2026.md`.
+
+
 ### v0.3.33 - 30th July 2026
 
 - Pruned the stale `Read(credentials/**)` deny from `.claude/settings.json`
@@ -225,19 +230,3 @@
   - Added timestamps to logging format (`%H:%M:%S`)
   - Wait 5 seconds after the signup modal loads (not before),
     then collect page info and close
-
-
-### v0.3.4 - 7th April 2026
-
-- Updated `scripts/playwright_tutorial.py`:
-  - Added step 7: click "Crear cuenta" and wait for the signup
-    dialog using `wait_for_selector` instead of a fixed timeout
-  - Added third `get_page_info()` call capturing the modal state
-
-
-### v0.3.3 - 7th April 2026
-
-- Updated `scripts/playwright_tutorial.py`:
-  - Replaced all `print()` calls with `logging` module
-  - Configured `basicConfig` with `format="%(message)s"` for
-    clean output
