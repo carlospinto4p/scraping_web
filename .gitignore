@@ -50,3 +50,6 @@ scripts/*.png
 # Universal entries (programme sync)
 .claude/wip
 .claude/docs-ok
+
+dist/
+logs/
