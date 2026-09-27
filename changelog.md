@@ -2,6 +2,23 @@
 ## Changelog - WebScraping
 
 
+### v0.3.35 - 27th September 2026
+
+- `.claude/rules/committing.md`/`versioning.md`: pulled programme's
+  canonical trim (2026-09-27 context-budget pass) — shorter
+  Concurrent-Sessions wording, one fewer commit-message example, and
+  the stale PEP-735 `uv pip install -e ".[dev]"` wording fixed. No
+  behavior change.
+- `scripts/pre-commit.sh`: fixed CRLF line endings that silently
+  disabled `set -e` and broke `uv run pytest`'s dev-extra install;
+  now runs `uv run --extra dev pytest` and treats pytest's "no tests
+  collected" exit code (5) as a pass instead of a block, since
+  `tests/unit/` has never held a test file in this tutorial repo.
+  Found while committing this same entry — every prior commit must
+  have gone through outside Claude Code's Bash tool, since this hook
+  would have blocked all of them.
+
+
 ### v0.3.34 - 31st July 2026
 
 - Rotated changelog: archived 2 entries to `changelog/2026.md`.
