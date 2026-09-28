@@ -2,6 +2,11 @@
 ## Changelog - WebScraping
 
 
+### v0.3.36 - 28th September 2026
+
+- Rotated changelog: archived 2 entries to `changelog/2026.md`.
+
+
 ### v0.3.35 - 27th September 2026
 
 - `.claude/rules/committing.md`/`versioning.md`: pulled programme's
@@ -227,23 +232,3 @@
 - `.claude/skills/optimize/`:
   - Updated `SKILL.md` to read both canonical
     procedure and per-project areas.
-
-
-### v0.3.6 - 10th April 2026
-
-- `.claude/rules/`:
-  - Decoupled `/improvements` rule: canonical
-    `improvements.md` is now procedural only.
-  - Added `improvement-areas.md` with
-    project-specific areas to watch.
-- `.claude/skills/improvements/`:
-  - Updated `SKILL.md` to read both canonical
-    procedure and per-project areas.
-
-
-### v0.3.5 - 7th April 2026
-
-- Updated `scripts/playwright_tutorial.py`:
-  - Added timestamps to logging format (`%H:%M:%S`)
-  - Wait 5 seconds after the signup modal loads (not before),
-    then collect page info and close
