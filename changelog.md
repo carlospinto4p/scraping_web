@@ -2,6 +2,11 @@
 ## Changelog - WebScraping
 
 
+### v0.3.38 - 16th October 2026
+
+- Rotated changelog: archived 2 entries to `changelog/2026.md`.
+
+
 ### v0.3.37 - 13th October 2026
 
 - `CLAUDE.md` `## Core Rules`: removed "Update CLAUDE.md Each
@@ -216,27 +221,3 @@
 
 - `.claude/`: cross-project migration landed today:
   - Removed `.claude/hooks/pre-commit-tests.sh`; replaced by a global dispatcher at `~/.claude/hooks/pre-commit-tests.sh` that invokes `scripts/pre-commit.sh` on `git commit`. Added `scripts/pre-commit.sh` with the project-local test command.
-
-
-### v0.3.8 - 11th April 2026
-
-- `.claude/rules/`:
-  - Decoupled `/refactor` rule: canonical
-    `refactoring.md` is now procedural only.
-  - Added `refactoring-areas.md` with
-    project-specific code smells to watch.
-- `.claude/skills/refactor/`:
-  - Updated `SKILL.md` to read both canonical
-    procedure and per-project areas.
-
-
-### v0.3.7 - 11th April 2026
-
-- `.claude/rules/`:
-  - Decoupled `/optimize` rule: canonical
-    `optimization.md` is now procedural only.
-  - Added `optimization-areas.md` with
-    project-specific performance areas.
-- `.claude/skills/optimize/`:
-  - Updated `SKILL.md` to read both canonical
-    procedure and per-project areas.
